@@ -1,7 +1,7 @@
 @import "../../../style/variables";
 
 .card {
-  height: 26rem;
+  // height: 26rem;
   width: 72.8rem;
   display: flex;
   background-color: white;
@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-width: 22rem;
+  min-width: 23rem;
   padding: 2rem;
 
   & .priceFont {
