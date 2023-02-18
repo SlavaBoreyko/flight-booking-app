@@ -1,0 +1,22 @@
+@import "../../../style/variables";
+
+.btn {
+  border: none;
+  cursor: pointer;
+  background-color: $colorPrimaryBlue;
+
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+
+  padding: 1rem;
+  border-radius: 2.4rem;
+  transition: transform 0.5s;
+
+  //   &:active {}
+
+  &:hover {
+    background-color: $colorPrimaryBlueDark;
+    transform: scale(0.97);
+  }
+}

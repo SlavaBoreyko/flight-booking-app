@@ -1,0 +1,67 @@
+@import "../../../style/variables";
+
+.card {
+  height: 26rem;
+  width: 72.8rem;
+  display: flex;
+  background-color: white;
+}
+
+.boundInfo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  & hr {
+    border: 0.5px solid rgba(0, 0, 0, 0.513);
+    width: 90%;
+    margin: 0 3rem 0 3rem;
+  }
+
+  & .paddingBox {
+    padding: 2rem 5rem 2rem 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & img {
+    height: 3rem;
+  }
+}
+
+.priceAndButton {
+  background-color: $colorPrimaryOrange;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 22rem;
+  padding: 2rem;
+
+  & .priceFont {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    & span {
+      font-size: 1.6rem;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    background-color: $colorPrimaryOrange;
+
+    top: 50%;
+    left: 0rem;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
