@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const useFetch = <Model extends {}>(url: string) => {
-  const [data, setData] = useState<Model[] | undefined>(undefined);
+  const [data, setData] = useState<Model | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | undefined>(undefined);
 

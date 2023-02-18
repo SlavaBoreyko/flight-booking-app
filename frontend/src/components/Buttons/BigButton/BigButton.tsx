@@ -6,10 +6,12 @@ export interface BtnProps {
   onClick?: () => void;
 }
 
-export const BigButton: FC<BtnProps> = ({ title, onClick }) => {
+const BigButton: FC<BtnProps> = ({ title, onClick }) => {
   return (
     <button className={s.btn} onClick={onClick}>
       {title}
     </button>
   );
 };
+
+export default BigButton;

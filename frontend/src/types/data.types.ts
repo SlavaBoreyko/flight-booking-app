@@ -26,3 +26,16 @@ export enum CurrencyType {
   USD = "USD",
   EUR = "EUR",
 }
+
+export enum CabinClassType {
+  BUSINESS = "BUSINESS",
+  ECONOMY = "ECONOMY",
+  FIRST = "FIRST",
+}
+
+export interface DetailsType {
+  remainingNumberOfSeats: number;
+  seatPitch: number;
+  freeBaggageAllowed: boolean;
+  cabinClass: CabinClassType;
+}

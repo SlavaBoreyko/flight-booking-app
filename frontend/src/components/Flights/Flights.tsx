@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react";
-import { FligthCard } from "./FligthCard";
+import FligthCard from "./FligthCard";
+import s from "./Flights.module.scss";
 import { useFetch } from "../../hooks/useFetch";
 import { CurrencyType, FlightType } from "../../types/data.types";
 
 const Flights = () => {
   const url = "http://localhost:3001/flights";
-  const { loading, error, data } = useFetch<FlightType>(url);
-
-  console.log(Object.values(CurrencyType));
+  const { loading, error, data } = useFetch<FlightType[]>(url);
 
   if (loading) {
     return <div>Loading...</div>;
   }
   if (error) {
-    // return <div>Error: {error}</div>;
+    return <div>Error: {error}</div>;
   }
-  if (data) {
+  if (data && data.length > 0) {
     return (
-      <>
+      <div className={s.listContainer}>
         {data.map((flight) => (
-          <div style={{ margin: "2rem" }}>
+          <div className={s.divMarginCenter} key={flight.uuid}>
             <FligthCard data={flight} />
           </div>
         ))}
-      </>
+      </div>
     );
   }
 

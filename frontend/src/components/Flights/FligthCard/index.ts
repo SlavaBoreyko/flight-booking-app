@@ -1,1 +1,1 @@
-export * from "./FligthCard";
+export { default } from "./FligthCard";

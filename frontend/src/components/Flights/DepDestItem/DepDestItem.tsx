@@ -9,7 +9,7 @@ interface DepDestItemInterface {
   data: BoundsType;
 }
 
-export const DepDestItem: FC<DepDestItemInterface> = ({ data }) => {
+const DepDestItem: FC<DepDestItemInterface> = ({ data }) => {
   if (!data) return null;
   return (
     <div className={s.container}>
@@ -30,3 +30,5 @@ export const DepDestItem: FC<DepDestItemInterface> = ({ data }) => {
     </div>
   );
 };
+
+export default DepDestItem;

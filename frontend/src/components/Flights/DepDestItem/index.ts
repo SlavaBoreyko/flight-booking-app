@@ -1,1 +1,1 @@
-export * from "./DepDestItem";
+export { default } from "./DepDestItem";

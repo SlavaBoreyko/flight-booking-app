@@ -1,10 +1,25 @@
 @import "../../../style/variables";
 
+.detailsBox {
+  background-color: $colorSecondaryBlueLight;
+
+  transition: all 0.5s;
+}
+
 .card {
-  // height: 26rem;
-  width: 72.8rem;
+  // width: 72.8rem;
   display: flex;
   background-color: white;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
 
 .boundInfo {
@@ -17,7 +32,7 @@
   & hr {
     border: 0.5px solid rgba(0, 0, 0, 0.513);
     width: 90%;
-    margin: 0 3rem 0 3rem;
+    margin-left: 2rem;
   }
 
   & .paddingBox {

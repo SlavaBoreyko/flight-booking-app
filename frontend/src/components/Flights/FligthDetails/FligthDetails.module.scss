@@ -1,0 +1,14 @@
+@import "../../../style/variables";
+
+.detailsCard {
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+
+  & span {
+    font-weight: 300;
+  }
+}
