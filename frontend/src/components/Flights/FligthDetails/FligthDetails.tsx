@@ -2,15 +2,14 @@ import React, { FC } from "react";
 import s from "./FligthDetails.module.scss";
 import { useFetch } from "../../../hooks/useFetch";
 import { DetailsType } from "../../../types/data.types";
+import { apiDetails } from "../../api";
 
 interface FligthDetailsProps {
   id: string;
 }
 
 const FligthDetails: FC<FligthDetailsProps> = ({ id }) => {
-  const url = `http://localhost:3001/flights/${id}`;
-
-  const { loading, error, data } = useFetch<DetailsType>(url);
+  const { loading, error, data } = useFetch<DetailsType>(apiDetails(id));
 
   if (loading) {
     return <div className={s.detailsCard}>Loading...</div>;

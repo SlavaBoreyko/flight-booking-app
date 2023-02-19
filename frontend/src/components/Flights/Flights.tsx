@@ -1,11 +1,11 @@
 import FligthCard from "./FligthCard";
 import s from "./Flights.module.scss";
 import { useFetch } from "../../hooks/useFetch";
-import { CurrencyType, FlightType } from "../../types/data.types";
+import { FlightType } from "../../types/data.types";
+import { apiFlights } from "../api";
 
 const Flights = () => {
-  const url = "http://localhost:3001/flights";
-  const { loading, error, data } = useFetch<FlightType[]>(url);
+  const { loading, error, data } = useFetch<FlightType[]>(apiFlights());
 
   if (loading) {
     return <div>Loading...</div>;

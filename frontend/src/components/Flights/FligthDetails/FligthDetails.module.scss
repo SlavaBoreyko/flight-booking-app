@@ -2,7 +2,7 @@
 
 .detailsCard {
   padding: 1rem;
-  font-size: 1.6rem;
+  font-size: $fontSizeSubtitleDesktop;
   font-weight: 500;
   color: white;
   display: flex;
@@ -10,5 +10,9 @@
 
   & span {
     font-weight: 300;
+  }
+
+  @media screen and (max-width: 64rem) {
+    font-size: $fontSizeSubtitleTablet;
   }
 }

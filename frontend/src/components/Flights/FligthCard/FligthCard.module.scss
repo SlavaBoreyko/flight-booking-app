@@ -6,16 +6,36 @@
   transition: all 0.5s;
 }
 
+// Mobile: 375px -> 767px
+// Tablet: 768px -> 1023px
+// Desktop: >= 1024px
+
 .card {
-  // width: 72.8rem;
+  width: 72.8rem;
   display: flex;
+  justify-content: flex-end;
   background-color: white;
+
+  @media screen and (max-width: 48em) {
+    width: 53.9rem;
+    background-color: rgb(221, 255, 0);
+  }
+
+  @media screen and (max-width: 64rem) {
+    width: 53.9rem;
+  }
+
+  // @media screen and (min-width: 64rem) {
+  //   width: 72.8rem;
+  //   background-color: white;
+  // }
 
   .header {
     display: flex;
     flex-direction: row;
   }
   .main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -32,7 +52,7 @@
   & hr {
     border: 0.5px solid rgba(0, 0, 0, 0.513);
     width: 90%;
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
 
   & .paddingBox {
@@ -41,10 +61,22 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 64rem) {
+      padding: 2rem 4rem 2rem 1rem;
+    }
   }
 
   & img {
-    height: 3rem;
+    height: 4rem;
+
+    @media screen and (max-width: 64rem) {
+      height: 3rem;
+      align-self: flex-start;
+      justify-self: flex-end;
+      margin-top: -1rem;
+      margin-right: -5rem;
+    }
   }
 }
 
@@ -55,16 +87,29 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start;
   min-width: 23rem;
   padding: 2rem;
 
+  @media screen and (max-width: 64rem) {
+    min-width: 18.5rem;
+    padding: 1rem 0.25rem 1rem 1rem;
+  }
+
   & .priceFont {
-    font-size: 3.2rem;
+    font-size: $fontSizeTitleDesktop;
     font-weight: 700;
     margin-bottom: 1rem;
 
     & span {
-      font-size: 1.6rem;
+      font-size: $fontSizeSubtitleDesktop;
+    }
+
+    @media screen and (max-width: 64rem) {
+      font-size: $fontSizeTitleTablet;
+      & span {
+        font-size: $fontSizeSubtitleTablet;
+      }
     }
   }
 

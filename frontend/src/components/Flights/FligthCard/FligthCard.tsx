@@ -7,6 +7,7 @@ import { FlightType } from "../../../types/data.types";
 import { currencySymbol } from "../../../constants/currencySymbol";
 import LinkButton from "../../Buttons/LinkButton/LinkButton";
 import FligthDetails from "../FligthDetails/FligthDetails";
+import { apiAirlinesLogo } from "../../../components/api";
 
 interface FligthCardInterface {
   data: FlightType;
@@ -28,6 +29,16 @@ const FligthCard: FC<FligthCardInterface> = ({ data }) => {
   const DetailsComponent = showDetails ? (
     <FligthDetails id={data.uuid} />
   ) : null;
+
+  const Logo = (
+    <img
+      src={apiAirlinesLogo(data.airlineCode)}
+      alt={`Airline ${data.airlineCode} Logo`}
+      onError={(event: React.ChangeEvent<HTMLImageElement>) =>
+        (event.target.style.display = "none")
+      }
+    />
+  );
 
   return (
     <>
@@ -57,7 +68,7 @@ const FligthCard: FC<FligthCardInterface> = ({ data }) => {
                 >
                   {line}
                   <li className={s.paddingBox} style={paddingTop}>
-                    <img src={Logo} alt="Airline Logo" />
+                    {Logo}
                     <DepDestItem data={item} />
                   </li>
                 </div>

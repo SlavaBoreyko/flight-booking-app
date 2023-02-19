@@ -5,13 +5,18 @@
   cursor: pointer;
   background-color: $colorPrimaryBlue;
 
-  font-size: 2rem;
+  font-size: $fontBtnTitleDesktop;
   font-weight: 700;
   color: #fff;
 
-  padding: 1rem;
+  padding: 1rem 4rem;
   border-radius: 2.4rem;
   transition: transform 0.5s;
+
+  @media screen and (max-width: 64rem) {
+    font-size: $fontBtnTitleTablet;
+    padding: 1rem 2rem;
+  }
 
   //   &:active {}
 

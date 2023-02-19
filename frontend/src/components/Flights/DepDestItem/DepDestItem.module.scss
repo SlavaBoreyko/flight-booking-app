@@ -4,16 +4,28 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 34rem;
+
+  @media screen and (max-width: 64rem) {
+    width: 28rem;
+  }
 }
 
 .timeContainer {
   padding: 1rem;
   line-height: 1.05;
-  font-size: 1.8rem;
+  font-size: $fontSizeSubtitleDesktop;
+
+  @media screen and (max-width: 64rem) {
+    font-size: $fontSizeSubtitleTablet;
+  }
 
   & .timeBold {
-    font-size: 3.2rem;
+    font-size: $fontSizeTitleDesktop;
     font-weight: 700;
+
+    @media screen and (max-width: 64rem) {
+      font-size: $fontSizeTitleTablet;
+    }
   }
 }
 
