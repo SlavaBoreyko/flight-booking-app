@@ -119,17 +119,17 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  min-width: 23rem;
+  min-width: 23.5rem;
   padding: 2rem;
 
-  @media screen and (max-width: 48em) {
+  @media screen and (max-width: 47.9em) {
     flex-direction: row;
     justify-content: space-between;
     padding: 1rem !important;
     width: 100%;
   }
 
-  @media screen and (max-width: 64rem) {
+  @media screen and (min-width: 48em) and (max-width: 64rem) {
     min-width: 18.5rem;
     padding: 1rem 0.25rem 1rem 1rem;
   }

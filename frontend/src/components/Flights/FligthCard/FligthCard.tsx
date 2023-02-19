@@ -2,12 +2,11 @@ import React, { FC, useState } from "react";
 import s from "./FligthCard.module.scss";
 import BigButton from "../../Buttons/BigButton";
 import DepDestItem from "../DepDestItem";
-import Logo from "../../../assets/logo.png";
 import { FlightType } from "../../../types/data.types";
 import { currencySymbol } from "../../../constants/currencySymbol";
 import LinkButton from "../../Buttons/LinkButton/LinkButton";
 import FligthDetails from "../FligthDetails/FligthDetails";
-import { apiAirlinesLogo } from "../../../components/api";
+import { apiAirlinesLogo } from "../../../api";
 
 interface FligthCardInterface {
   data: FlightType;

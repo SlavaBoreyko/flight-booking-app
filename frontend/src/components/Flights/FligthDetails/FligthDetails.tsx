@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import s from "./FligthDetails.module.scss";
 import { useFetch } from "../../../hooks/useFetch";
 import { DetailsType } from "../../../types/data.types";
-import { apiDetails } from "../../api";
+import { apiDetails } from "../../../api";
 
 interface FligthDetailsProps {
   id: string;
