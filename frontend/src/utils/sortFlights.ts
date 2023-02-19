@@ -12,12 +12,10 @@ export enum SortType {
 export const sortFlights = (data: FlightType[], sortType: SortType) => {
   switch (sortType) {
     case SortType.PRICE_ASCENDING:
-      console.log("PRICE_ASCENDING");
       return data.sort((a, b) => a.price.amount - b.price.amount);
     case SortType.PRICE_DESCENDING:
       return data.sort((a, b) => b.price.amount - a.price.amount);
     case SortType.DEPARTURE_TIME_ASCENDING:
-      console.log("DEPARTURE_TIME_ASCENDING");
       return data.sort(
         (a, b) =>
           Date.parse(a.bounds[0].departure.dateTime) -
@@ -36,7 +34,6 @@ export const sortFlights = (data: FlightType[], sortType: SortType) => {
           toSeconds(parse(b.bounds[0].duration))
       );
     default:
-      console.log("default");
       return data;
   }
 };

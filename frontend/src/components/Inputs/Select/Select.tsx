@@ -19,7 +19,9 @@ const Select: FC<SelectProps> = ({ id, label, options, onChange }) => {
       <label htmlFor={id}>{label}</label>
       <select name={id} id={id} onChange={onChange}>
         {options.map((item) => (
-          <option value={item.value}>{item.label}</option>
+          <option key={item.value} value={item.value}>
+            {item.label}
+          </option>
         ))}
       </select>
     </div>

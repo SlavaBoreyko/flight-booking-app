@@ -1,5 +1,5 @@
-export const time = (date: string) => {
-  const parseDate = new Date(Date.parse(date));
+export const randomTime = (date: string) => {
+  // const parseDate = new Date(Date.parse(date));
   //   const hour = parseDate.getHours();
   //   const min = parseDate.getMinutes();
   const hour = Math.round(Math.random() * 24)

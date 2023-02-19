@@ -4,11 +4,11 @@ import Flights from "./Flights";
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/flights">
+      <Route path="/flights" exact>
         <Flights />
       </Route>
-      <Route path="*">
-        <Redirect to="flights" />
+      <Route path="/flights/booking-confirmation">
+        <p>booking-confirmation</p>
       </Route>
     </Switch>
   );

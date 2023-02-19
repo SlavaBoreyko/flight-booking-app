@@ -1,15 +1,21 @@
 import FligthCard from "./FligthCard";
 import s from "./Flights.module.scss";
-import { useFetch } from "../../hooks/useFetch";
 import { FlightType } from "../../types/data.types";
 import { apiFlights } from "../../api";
 import { SortType, sortFlights } from "../../utils/sortFlights";
 import { useState } from "react";
 import { useFlightsSortSelect } from "../../hooks";
 import Select from "../Inputs/Select/Select";
+import { useAxios } from "../../hooks";
 
 const Flights = () => {
-  const { loading, error, data } = useFetch<FlightType[]>(apiFlights());
+  const { response, loading, error } = useAxios({
+    method: "get",
+    url: apiFlights(),
+    headers: {
+      accept: "*/*",
+    },
+  });
   const { optionsSortFlights, handleSelectSort, sortBy } =
     useFlightsSortSelect();
 
@@ -17,10 +23,10 @@ const Flights = () => {
     return <div>Loading...</div>;
   }
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>Error: {error.message}</div>;
   }
-  if (data && data.length > 0) {
-    const sortData = sortFlights(data, sortBy);
+  if (response && response.data.length > 0) {
+    const sortData = sortFlights(response.data, sortBy);
     return (
       <div className={s.listContainer}>
         <form>

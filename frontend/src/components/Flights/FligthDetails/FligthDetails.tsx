@@ -1,24 +1,31 @@
 import React, { FC } from "react";
 import s from "./FligthDetails.module.scss";
-import { useFetch } from "../../../hooks/useFetch";
 import { DetailsType } from "../../../types/data.types";
 import { apiDetails } from "../../../api";
+import { useAxios } from "../../../hooks";
 
 interface FligthDetailsProps {
   id: string;
 }
 
 const FligthDetails: FC<FligthDetailsProps> = ({ id }) => {
-  const { loading, error, data } = useFetch<DetailsType>(apiDetails(id));
+  const { response, loading, error } = useAxios({
+    method: "get",
+    url: apiDetails(id),
+    headers: {
+      accept: "*/*",
+    },
+  });
 
   if (loading) {
     return <div className={s.detailsCard}>Loading...</div>;
   }
   if (error) {
-    return <div className={s.detailsCard}>Error: {error}</div>;
+    return <div className={s.detailsCard}>Error: {error.message}</div>;
   }
 
-  if (data) {
+  if (response?.data) {
+    const data = response.data;
     return (
       <div className={s.detailsCard}>
         <p>

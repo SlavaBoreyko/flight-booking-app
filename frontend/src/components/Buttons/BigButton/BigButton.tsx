@@ -3,7 +3,7 @@ import s from "./BigButton.module.scss";
 
 export interface BtnProps {
   title: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const BigButton: FC<BtnProps> = ({ title, onClick }) => {

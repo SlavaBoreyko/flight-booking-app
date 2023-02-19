@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import s from "./FligthCard.module.scss";
 import BigButton from "../../Buttons/BigButton";
 import DepDestItem from "../DepDestItem";
@@ -6,14 +6,52 @@ import { FlightType } from "../../../types/data.types";
 import { currencySymbol } from "../../../constants/currencySymbol";
 import LinkButton from "../../Buttons/LinkButton/LinkButton";
 import FligthDetails from "../FligthDetails/FligthDetails";
-import { apiAirlinesLogo } from "../../../api";
+import { apiAirlinesLogo, apiFlights } from "../../../api";
+import LogoError from "../../../assets/LogoError.png";
+import { useAxios } from "../../../hooks";
+import { useHistory, useLocation } from "react-router-dom";
 
 interface FligthCardInterface {
   data: FlightType;
 }
 
 const FligthCard: FC<FligthCardInterface> = ({ data }) => {
+  const { pathname } = useLocation();
+  const history = useHistory();
   const [showDetails, setShowDetails] = useState<boolean>(false);
+  const [btnTitle, setBtnTitle] = useState<string>("Book flight");
+  const [errorBooking, setErrorBooking] = useState<string | null>(null);
+  const { response, loading, error, sendData } = useAxios({
+    method: "post",
+    url: apiFlights(),
+    headers: {
+      accept: "*/*",
+    },
+    data: JSON.stringify({
+      uuid: data.uuid,
+    }),
+  });
+
+  useEffect(() => {
+    if (loading) {
+      setBtnTitle("  ...  ");
+    } else {
+      setBtnTitle("Book flight");
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    if (error) {
+      setErrorBooking(error.message);
+    } else {
+      setErrorBooking(null);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (response?.status === 200)
+      history.push(`${pathname}/booking-confirmation`);
+  }, [response]);
 
   const showDetailsStyle = showDetails
     ? {
@@ -34,7 +72,7 @@ const FligthCard: FC<FligthCardInterface> = ({ data }) => {
       src={apiAirlinesLogo(data.airlineCode)}
       alt={`Airline ${data.airlineCode} Logo`}
       onError={(event: React.ChangeEvent<HTMLImageElement>) =>
-        (event.target.style.display = "none")
+        (event.target.src = LogoError)
       }
     />
   );
@@ -80,7 +118,13 @@ const FligthCard: FC<FligthCardInterface> = ({ data }) => {
             {`${currencySymbol[data.price.currency]} ${data.price.amount}`}
             <span> p.p.</span>
           </p>
-          <BigButton title="Book flight" />
+          <BigButton
+            title={btnTitle}
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              sendData();
+            }}
+          />
+          {errorBooking ? <p>{errorBooking}</p> : null}
         </div>
       </div>
     </>
