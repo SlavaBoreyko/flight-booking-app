@@ -6,9 +6,18 @@
 
   margin-left: 10rem;
   margin-right: 10rem;
+
+  @media screen and (max-width: 47.9em) {
+    margin: 0 1rem;
+  }
+
+  @media screen and (min-width: 48em) and (max-width: 64rem) {
+    margin: 0 2rem;
+  }
 }
 
 .divMarginCenter {
+  width: 100%;
   margin: 2rem;
   align-self: center;
 }
