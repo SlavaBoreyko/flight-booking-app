@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SortType } from "../utils/sortFlights";
+import { SortType } from "../api/sortFlights";
 import { optionsSortFlights } from "../constants/optionsSortFlights";
 
 export const useFlightsSortSelect = () => {

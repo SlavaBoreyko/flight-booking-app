@@ -1,23 +1,29 @@
 .listContainer {
-  //   min-width: 102.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
-  margin-left: 10rem;
-  margin-right: 10rem;
+  width: 96%;
+  margin: 0 2%;
+  // FORM
+  & form {
+    width: 72.8rem;
 
-  @media screen and (max-width: 47.9em) {
-    margin: 0 1rem;
-  }
+    @media screen and (max-width: 47.9em) {
+      width: 100%;
+    }
 
-  @media screen and (min-width: 48em) and (max-width: 64rem) {
-    margin: 0 2rem;
+    @media screen and (min-width: 48em) and (max-width: 64rem) {
+      width: 54rem;
+    }
   }
 }
 
-.divMarginCenter {
-  width: 100%;
+.divMargin {
   margin: 1rem;
-  align-self: center;
+
+  @media screen and (max-width: 47.9em) {
+    width: 100%;
+  }
 }

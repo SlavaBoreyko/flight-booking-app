@@ -1,10 +1,9 @@
 @import "../../../style/variables";
 
 .detailsCard {
-  padding: 1rem;
+  // padding: 1rem;
   font-size: $fontSizeSubtitleDesktop;
   font-weight: 500;
-  color: white;
   display: flex;
   justify-content: space-between;
 
@@ -15,7 +14,7 @@
   @media screen and (max-width: 47.9em) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0.5rem 1rem;
+    // padding: 0.5rem 1rem;
     font-size: 1.2rem;
   }
 

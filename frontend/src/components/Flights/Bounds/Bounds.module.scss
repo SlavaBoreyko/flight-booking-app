@@ -1,0 +1,60 @@
+.boundInfo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  & hr {
+    border: 0.5px solid rgba(0, 0, 0, 0.513);
+    width: 90%;
+    margin-left: 2rem;
+
+    @media screen and (max-width: 47.9em) {
+      width: 96%;
+      margin: auto;
+    }
+
+    @media screen and (min-width: 48em) and (max-width: 64rem) {
+      width: 91%;
+      margin-left: 1rem;
+    }
+  }
+
+  & .paddingBox {
+    padding: 2rem 5rem 2rem 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 47.9em) {
+      justify-content: center;
+      padding: 2rem 4rem 2rem 1rem;
+    }
+
+    @media screen and (min-width: 48em) and (max-width: 64rem) {
+      padding: 2rem 4rem 2rem 1rem;
+    }
+  }
+
+  & img {
+    height: 4rem;
+
+    @media screen and (max-width: 47.9em) {
+      height: 3rem;
+      align-self: flex-start;
+      justify-self: flex-end;
+      margin-top: -1.5rem;
+      // margin-left: -0.5rem;
+    }
+
+    @media screen and (min-width: 48em) and (max-width: 64rem) {
+      height: 3rem;
+      align-self: flex-start;
+      justify-self: flex-end;
+      margin-top: -1rem;
+      margin-right: -5rem;
+    }
+  }
+}

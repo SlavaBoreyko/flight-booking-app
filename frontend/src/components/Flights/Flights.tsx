@@ -1,17 +1,14 @@
-import FligthCard from "./FligthCard";
 import s from "./Flights.module.scss";
-import { api } from "../../api";
-import { sortFlights } from "../../utils/sortFlights";
-import { useFlightsSortSelect } from "../../hooks";
+import FlightCard from "./FlightCard";
 import { Select } from "../shared/Inputs";
-import { useAxios } from "../../hooks";
-import { useHistory } from "react-router-dom";
-import { CenterFlex } from "../shared/Containers/CenterFlex";
-import { Message } from "../shared/Messages";
-import { BigButton } from "../shared/Buttons";
+import ErrorServerPage from "../../pages/ErrorServerPage";
+import SkeletonList from "./SkeletonList/SkeletonList";
+
+import { api } from "../../api";
+import { useFlightsSortSelect, useAxios } from "../../hooks";
+import { sortFlights } from "../../api/sortFlights";
 
 const Flights = () => {
-  const history = useHistory();
   const { response, loading, error } = useAxios({
     method: "get",
     url: api.flights.list,
@@ -23,22 +20,10 @@ const Flights = () => {
     useFlightsSortSelect();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <SkeletonList />;
   }
   if (error) {
-    // return <div>Error: {error.message}</div>;
-
-    return (
-      <div style={{ height: "100vh" }}>
-        <CenterFlex>
-          <Message title="Error server" message="Please refresh a page." />
-          <BigButton
-            title="Refresh page"
-            onClick={() => window.location.reload()}
-          />
-        </CenterFlex>
-      </div>
-    );
+    return <ErrorServerPage />;
   }
   if (response && response.data.length > 0) {
     const sortData = sortFlights(response.data, sortBy);
@@ -53,8 +38,8 @@ const Flights = () => {
           />
         </form>
         {sortData.map((flight) => (
-          <div className={s.divMarginCenter} key={flight.uuid}>
-            <FligthCard data={flight} />
+          <div className={s.divMargin} key={flight.uuid}>
+            <FlightCard data={flight} />
           </div>
         ))}
       </div>

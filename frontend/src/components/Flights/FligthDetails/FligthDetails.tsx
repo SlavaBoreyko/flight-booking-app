@@ -22,7 +22,6 @@ const FligthDetails: FC<FligthDetailsProps> = ({ id }) => {
   if (error) {
     return <div className={s.detailsCard}>Error: {error.message}</div>;
   }
-
   if (response?.data) {
     const data = response.data;
     return (

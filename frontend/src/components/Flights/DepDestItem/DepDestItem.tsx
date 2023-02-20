@@ -1,9 +1,7 @@
 import React, { FC } from "react";
 import s from "./DepDestItem.module.scss";
+import { formatDuration, randomTime, date } from "../../../utils";
 import { BoundsType } from "../../../types/data.types";
-import { formatDuration } from "../../../utils/duration";
-import { randomTime } from "../../../utils/randomTime";
-import { date } from "../../../utils/date";
 
 interface DepDestItemInterface {
   data: BoundsType;
