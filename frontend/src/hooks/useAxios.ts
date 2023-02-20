@@ -4,9 +4,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 export const useAxios = (axiosParams: AxiosRequestConfig) => {
   const [response, setResponse] = useState<AxiosResponse>();
   const [error, setError] = useState<AxiosError>();
-  const [loading, setLoading] = useState(
-    axiosParams.method === "GET" || axiosParams.method === "get"
-  );
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async (params: AxiosRequestConfig) => {
     try {

@@ -1,14 +1,15 @@
-import { Redirect, Route, Switch } from "react-router-dom";
-import Flights from "./Flights";
+import { Route, Switch } from "react-router-dom";
+import { FlightsPage } from "../pages/FlightsPage";
+import { ConfirmationPage } from "../pages/ConfirmationPage";
 
 const Routes = () => {
   return (
     <Switch>
       <Route path="/flights" exact>
-        <Flights />
+        <FlightsPage />
       </Route>
       <Route path="/flights/booking-confirmation">
-        <p>booking-confirmation</p>
+        <ConfirmationPage />
       </Route>
     </Switch>
   );

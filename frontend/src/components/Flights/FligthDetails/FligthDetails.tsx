@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import s from "./FligthDetails.module.scss";
-import { DetailsType } from "../../../types/data.types";
-import { apiDetails } from "../../../api";
+import { api } from "../../../api";
 import { useAxios } from "../../../hooks";
 
 interface FligthDetailsProps {
@@ -11,7 +10,7 @@ interface FligthDetailsProps {
 const FligthDetails: FC<FligthDetailsProps> = ({ id }) => {
   const { response, loading, error } = useAxios({
     method: "get",
-    url: apiDetails(id),
+    url: api.flights.details(id),
     headers: {
       accept: "*/*",
     },

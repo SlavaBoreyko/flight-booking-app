@@ -13,7 +13,7 @@ export interface SelectProps {
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Select: FC<SelectProps> = ({ id, label, options, onChange }) => {
+export const Select: FC<SelectProps> = ({ id, label, options, onChange }) => {
   return (
     <div className={s.selectContainer}>
       <label htmlFor={id}>{label}</label>
@@ -27,5 +27,3 @@ const Select: FC<SelectProps> = ({ id, label, options, onChange }) => {
     </div>
   );
 };
-
-export default Select;

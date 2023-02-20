@@ -1,17 +1,20 @@
 import FligthCard from "./FligthCard";
 import s from "./Flights.module.scss";
-import { FlightType } from "../../types/data.types";
-import { apiFlights } from "../../api";
-import { SortType, sortFlights } from "../../utils/sortFlights";
-import { useState } from "react";
+import { api } from "../../api";
+import { sortFlights } from "../../utils/sortFlights";
 import { useFlightsSortSelect } from "../../hooks";
-import Select from "../Inputs/Select/Select";
+import { Select } from "../shared/Inputs";
 import { useAxios } from "../../hooks";
+import { useHistory } from "react-router-dom";
+import { CenterFlex } from "../shared/Containers/CenterFlex";
+import { Message } from "../shared/Messages";
+import { BigButton } from "../shared/Buttons";
 
 const Flights = () => {
+  const history = useHistory();
   const { response, loading, error } = useAxios({
     method: "get",
-    url: apiFlights(),
+    url: api.flights.list,
     headers: {
       accept: "*/*",
     },
@@ -23,7 +26,19 @@ const Flights = () => {
     return <div>Loading...</div>;
   }
   if (error) {
-    return <div>Error: {error.message}</div>;
+    // return <div>Error: {error.message}</div>;
+
+    return (
+      <div style={{ height: "100vh" }}>
+        <CenterFlex>
+          <Message title="Error server" message="Please refresh a page." />
+          <BigButton
+            title="Refresh page"
+            onClick={() => window.location.reload()}
+          />
+        </CenterFlex>
+      </div>
+    );
   }
   if (response && response.data.length > 0) {
     const sortData = sortFlights(response.data, sortBy);

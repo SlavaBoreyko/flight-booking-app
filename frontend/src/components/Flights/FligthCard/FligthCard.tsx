@@ -1,12 +1,13 @@
 import React, { FC, useEffect, useState } from "react";
 import s from "./FligthCard.module.scss";
-import BigButton from "../../Buttons/BigButton";
+
+import { BigButton, LinkButton } from "../../shared/Buttons";
+
 import DepDestItem from "../DepDestItem";
 import { FlightType } from "../../../types/data.types";
 import { currencySymbol } from "../../../constants/currencySymbol";
-import LinkButton from "../../Buttons/LinkButton/LinkButton";
 import FligthDetails from "../FligthDetails/FligthDetails";
-import { apiAirlinesLogo, apiFlights } from "../../../api";
+import { api } from "../../../api";
 import LogoError from "../../../assets/LogoError.png";
 import { useAxios } from "../../../hooks";
 import { useHistory, useLocation } from "react-router-dom";
@@ -23,7 +24,7 @@ const FligthCard: FC<FligthCardInterface> = ({ data }) => {
   const [errorBooking, setErrorBooking] = useState<string | null>(null);
   const { response, loading, error, sendData } = useAxios({
     method: "post",
-    url: apiFlights(),
+    url: api.flights.list,
     headers: {
       accept: "*/*",
     },
@@ -69,7 +70,7 @@ const FligthCard: FC<FligthCardInterface> = ({ data }) => {
 
   const Logo = (
     <img
-      src={apiAirlinesLogo(data.airlineCode)}
+      src={api.flights.airlinesLogo(data.airlineCode)}
       alt={`Airline ${data.airlineCode} Logo`}
       onError={(event: React.ChangeEvent<HTMLImageElement>) =>
         (event.target.src = LogoError)
@@ -86,7 +87,7 @@ const FligthCard: FC<FligthCardInterface> = ({ data }) => {
         <div className={s.main}>
           <div className={s.header}>
             <LinkButton
-              title="Fluchtdetails"
+              title="Vluchtdetails"
               onClick={() => setShowDetails((prev) => !prev)}
             />
           </div>

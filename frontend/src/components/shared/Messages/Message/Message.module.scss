@@ -1,0 +1,14 @@
+@import "../../../../style/variables";
+
+.containerMessage {
+  margin: 2rem;
+  text-align: center;
+  & h2 {
+    font-size: $fontSizeTitleDesktop;
+    font-weight: 700;
+  }
+
+  & p {
+    font-size: $fontSizeSubtitleDesktop;
+  }
+}
