@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { SortType } from "../api/sortFlights";
-import { optionsSortFlights } from "../constants/optionsSortFlights";
+import { SortType } from "@/api";
+import { optionsSortFlights } from "@/constants";
 
 export const useFlightsSortSelect = () => {
   const [sortBy, setSortBy] = useState<SortType>(SortType.PRICE_ASCENDING);

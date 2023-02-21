@@ -1,6 +1,6 @@
 import React from "react";
-import { api } from "../../../api";
-import LogoError from "../../../assets/LogoError.png";
+import { api } from "@/api";
+import LogoError from "@/assets/LogoError.png";
 
 const AirlinesLogo = ({ airlineCode }: { airlineCode: string }) => {
   return (

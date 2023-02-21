@@ -1,6 +1,7 @@
-import ConfirmationPage from "../pages/ConfirmationPage";
-import Error404 from "../pages/Error404";
-import FlightsPage from "../pages/FlightsPage";
+import ConfirmationPage from "@/pages/ConfirmationPage";
+import Error404 from "@/pages/Error404";
+import FlightsPage from "@/pages/FlightsPage";
+import { Redirect } from "react-router-dom";
 
 type NavRoute = {
   path: string;
@@ -19,6 +20,7 @@ export const navRoutes: NavRoutes = {
   },
   error404: {
     path: "*",
-    element: <Error404 />,
+    // element: <Error404 />,
+    element: <Redirect to="/flights" />,
   },
 };

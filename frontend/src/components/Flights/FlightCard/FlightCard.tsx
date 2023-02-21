@@ -2,16 +2,16 @@ import React, { FC, useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import s from "./FlightCard.module.scss";
 
-import FligthDetails from "../FligthDetails";
-import Bounds from "../Bounds/Bounds";
-import PriceButtonBox from "../PriceButtonBox/PriceButtonBox";
-import { LinkButton } from "../../shared/Buttons";
+import FligthDetails from "@/components/Flights/FligthDetails";
+import Bounds from "@/components/Flights/Bounds";
+import PriceButtonBox from "@/components/Flights/PriceButtonBox";
+import { LinkButton } from "@/components/shared/Buttons";
 
-import { api } from "../../../api";
-import { useAxios } from "../../../hooks";
+import { api } from "@/api";
+import { useAxios } from "@/hooks";
 
 import { showDetailsStyle, showErrorBoxStyle } from "./utils";
-import { FlightType } from "../../../types/data.types";
+import { FlightType } from "@/types/data.types";
 
 interface FlightCardInterface {
   data: FlightType;

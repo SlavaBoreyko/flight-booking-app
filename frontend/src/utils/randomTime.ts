@@ -1,14 +1,11 @@
 export const randomTime = (date: string) => {
-  // const parseDate = new Date(Date.parse(date));
-  //   const hour = parseDate.getHours();
-  //   const min = parseDate.getMinutes();
-  const hour = Math.round(Math.random() * 24)
-    .toString()
-    .padStart(2, "0");
+  let parseDate = new Date(Date.parse(date));
 
-  const min = Math.round(Math.random() * 59)
-    .toString()
-    .padStart(2, "0");
+  const randomHour = Math.round(Math.random() * 24);
+  const randomMin = Math.round(Math.random() * 59);
+  const randomInMillis = (360 * randomHour + randomMin * 60) * 1000;
+  parseDate.setTime(parseDate.getTime() + randomInMillis);
 
-  return `${hour}:${min}`;
+  console.log(parseDate.toISOString());
+  return parseDate.toISOString();
 };

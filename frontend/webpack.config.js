@@ -19,13 +19,9 @@ module.exports = {
         exclude: /node_modules/,
         use: "ts-loader",
       },
-      // {
-      //   test: /\.(sa|sc|c)ss$/,
-      //   use: ["css-loader", "sass-loader"],
-      // },
       {
         test: /\.module\.s(a|c)ss$/,
-        loader: [
+        use: [
           isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
@@ -45,7 +41,7 @@ module.exports = {
       {
         test: /\.s(a|c)ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
-        loader: [
+        use: [
           isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
           {
@@ -65,9 +61,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "bundle.js",
+    publicPath: "/",
   },
   mode: "development",
   devtool: "source-map",
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: isDevelopment ? "[name].css" : "[name].[hash].css",

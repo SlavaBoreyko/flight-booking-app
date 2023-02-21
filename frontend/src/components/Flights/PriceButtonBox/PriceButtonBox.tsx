@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import s from "./PriceButtonBox.module.scss";
-import { BigButton } from "../../shared/Buttons";
-import { currencySymbol } from "../../../constants/currencySymbol";
-import { PriceType } from "../../../types/data.types";
+import { BigButton } from "@/components/shared/Buttons";
+import { currencySymbol } from "@/constants";
+import { PriceType } from "@/types/data.types";
 
 interface PriceButtonBoxProps {
   price: PriceType;

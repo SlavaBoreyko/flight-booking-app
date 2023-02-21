@@ -1,5 +1,4 @@
-import { dayString } from "../constants/dayString";
-import { monthString } from "../constants/monthString";
+import { dayString, monthString } from "@/constants";
 
 export const date = (date: string) => {
   const parseDate = new Date(Date.parse(date));

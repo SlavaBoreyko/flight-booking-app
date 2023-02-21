@@ -1,4 +1,4 @@
-import { FlightType } from "../types/data.types";
+import { FlightType } from "@/types/data.types";
 import { parse, toSeconds } from "iso8601-duration";
 
 export enum SortType {

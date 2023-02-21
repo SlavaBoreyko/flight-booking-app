@@ -1,7 +1,7 @@
 import React from "react";
-import { Message } from "../components/shared/Messages";
-import { BigButton } from "../components/shared/Buttons";
-import { CenterFlex } from "../components/shared/Containers/CenterFlex";
+import { Message } from "@/components/shared/Messages";
+import { BigButton } from "@/components/shared/Buttons";
+import { CenterFlex } from "@/components/shared/Containers/CenterFlex";
 import { useHistory } from "react-router-dom";
 
 const ConfirmationPage = () => {

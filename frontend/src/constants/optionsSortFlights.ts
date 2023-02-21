@@ -1,4 +1,4 @@
-import { SortType } from "../api/sortFlights";
+import { SortType } from "@/api/sortFlights";
 
 export const optionsSortFlights = [
   {

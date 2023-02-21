@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import s from "./FligthDetails.module.scss";
-import { api } from "../../../api";
-import { useAxios } from "../../../hooks";
+import { api } from "@/api";
+import { useAxios } from "@/hooks";
 
 interface FligthDetailsProps {
   id: string;

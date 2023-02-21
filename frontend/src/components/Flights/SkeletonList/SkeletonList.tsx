@@ -1,6 +1,5 @@
-import React from "react";
-import { SkeletonCard } from "../../shared/SkeletonCard";
 import s from "./SkeletonList.module.scss";
+import { SkeletonCard } from "@/components/shared/SkeletonCard";
 
 const SkeletonList = () => {
   const tenItems = Array.from(Array(10).keys());

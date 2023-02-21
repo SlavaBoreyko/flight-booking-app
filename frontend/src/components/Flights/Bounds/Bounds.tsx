@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import s from "./Bounds.module.scss";
 
-import { BoundsType } from "../../../types/data.types";
-import { lineHrStyle } from "../FlightCard/utils";
-import AirlinesLogo from "../AirlinesLogo";
-import DepDestItem from "../DepDestItem";
+import { BoundsType } from "@/types/data.types";
+import { lineHrStyle } from "@/components/Flights/FlightCard/utils";
+import AirlinesLogo from "@/components/Flights/AirlinesLogo";
+import DepDestItem from "@/components/Flights/DepDestItem";
 
 interface BoundsProps {
   bounds: BoundsType[];
