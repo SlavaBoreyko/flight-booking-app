@@ -1,10 +1,17 @@
 import React, { FC, useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import s from "./FlightCard.module.scss";
+
+import {
+  StyledCard,
+  StyledCardHeader,
+  StyledCardMain,
+  StyledDetailsBox,
+  StyledErrorBox,
+} from "./styles";
 
 import FligthDetails from "@/components/Flights/FligthDetails";
 import Bounds from "@/components/Flights/Bounds";
-import PriceButtonBox from "@/components/Flights/PriceButtonBox";
+import PriceButtonBox from "@/components/Flights/PriceBtnBox";
 import { LinkButton } from "@/components/shared/Buttons";
 
 import { api } from "@/api";
@@ -50,20 +57,18 @@ const FlightCard: FC<FlightCardInterface> = ({ data }) => {
   return (
     <>
       {/* >>> DETAILS >>> */}
-      <div className={s.detailsBox} style={showStyle}>
-        {DetailsComponent}
-      </div>
-      <div className={s.card}>
+      <StyledDetailsBox style={showStyle}>{DetailsComponent}</StyledDetailsBox>
+      <StyledCard>
         {/* >>> BOUNDS >>> */}
-        <div className={s.main}>
-          <div className={s.header}>
+        <StyledCardMain>
+          <StyledCardHeader>
             <LinkButton
               title="Vluchtdetails"
               onClick={() => setShowDetails((prev) => !prev)}
             />
-          </div>
+          </StyledCardHeader>
           <Bounds bounds={data.bounds} airlineCode={data.airlineCode} />
-        </div>
+        </StyledCardMain>
 
         {/* >>> PRICE & BUTTON >>> */}
         <PriceButtonBox
@@ -72,11 +77,11 @@ const FlightCard: FC<FlightCardInterface> = ({ data }) => {
           onClick={handleBooking}
           loading={loading}
         />
-      </div>
+      </StyledCard>
       {/* >>> ERROR MESSAGE >>> */}
-      <div className={s.errorBox} style={showErrorStyle}>
+      <StyledErrorBox style={showErrorStyle}>
         {error ? "Error. Please try press button again." : null}
-      </div>
+      </StyledErrorBox>
     </>
   );
 };

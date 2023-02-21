@@ -1,5 +1,11 @@
 import React, { FC } from "react";
-import s from "./DepDestItem.module.scss";
+import {
+  StyledContainer,
+  StyledTime,
+  StyledTimeBold,
+  StyledDuration,
+  StyledLine,
+} from "./styles";
 import { formatDuration, date, hourAndMin } from "@/utils";
 import { BoundsType } from "@/types/data.types";
 
@@ -10,22 +16,22 @@ interface DepDestItemInterface {
 const DepDestItem: FC<DepDestItemInterface> = ({ data }) => {
   if (!data) return null;
   return (
-    <div className={s.container}>
-      <div className={s.timeContainer} style={{ textAlign: "right" }}>
+    <StyledContainer>
+      <StyledTime style={{ textAlign: "right" }}>
         <p>{data.departure.code}</p>
-        <p className={s.timeBold}>{hourAndMin(data.departure.dateTime)}</p>
+        <StyledTimeBold>{hourAndMin(data.departure.dateTime)}</StyledTimeBold>
         <p>{date(data.departure.dateTime)}</p>
-      </div>
-      <div className={s.timeline}>
+      </StyledTime>
+      <StyledDuration>
         <p>{formatDuration(data.duration)}</p>
-        <div className={s.lineElement}></div>
-      </div>
-      <div className={s.timeContainer}>
+        <StyledLine />
+      </StyledDuration>
+      <StyledTime>
         <p>{data.destination.code}</p>
-        <p className={s.timeBold}>{hourAndMin(data.destination.dateTime)}</p>
+        <StyledTimeBold>{hourAndMin(data.destination.dateTime)}</StyledTimeBold>
         <p>{date(data.destination.dateTime)}</p>
-      </div>
-    </div>
+      </StyledTime>
+    </StyledContainer>
   );
 };
 

@@ -6,6 +6,5 @@ export const randomTime = (date: string) => {
   const randomInMillis = (360 * randomHour + randomMin * 60) * 1000;
   parseDate.setTime(parseDate.getTime() + randomInMillis);
 
-  console.log(parseDate.toISOString());
   return parseDate.toISOString();
 };

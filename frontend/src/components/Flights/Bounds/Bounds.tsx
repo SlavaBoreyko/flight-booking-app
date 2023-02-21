@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import s from "./Bounds.module.scss";
+import { StyledBounds, StyledPadding } from "./styles";
 
 import { BoundsType } from "@/types/data.types";
-import { lineHrStyle } from "@/components/Flights/FlightCard/utils";
+import { lineHrStyle } from "@/components/Flights/Bounds/utils";
 import AirlinesLogo from "@/components/Flights/AirlinesLogo";
 import DepDestItem from "@/components/Flights/DepDestItem";
 
@@ -13,7 +13,7 @@ interface BoundsProps {
 
 const Bounds: FC<BoundsProps> = ({ bounds, airlineCode }) => {
   return (
-    <ul className={s.boundInfo}>
+    <StyledBounds>
       {bounds.map((item, index) => {
         const { line, paddingTop } = lineHrStyle(index);
         return (
@@ -22,14 +22,14 @@ const Bounds: FC<BoundsProps> = ({ bounds, airlineCode }) => {
             style={{ width: "100%" }}
           >
             {line}
-            <li className={s.paddingBox} style={paddingTop}>
+            <StyledPadding style={paddingTop}>
               <AirlinesLogo airlineCode={airlineCode} />
               <DepDestItem data={item} />
-            </li>
+            </StyledPadding>
           </div>
         );
       })}
-    </ul>
+    </StyledBounds>
   );
 };
 

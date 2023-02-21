@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import s from "./FligthDetails.module.scss";
+import { StyledDetails } from "./styles";
 import { api } from "@/api";
 import { useAxios } from "@/hooks";
 
@@ -17,15 +17,15 @@ const FligthDetails: FC<FligthDetailsProps> = ({ id }) => {
   });
 
   if (loading) {
-    return <div className={s.detailsCard}>Loading...</div>;
+    return <StyledDetails>Loading...</StyledDetails>;
   }
   if (error) {
-    return <div className={s.detailsCard}>Error: {error.message}</div>;
+    return <StyledDetails>Error: {error.message}</StyledDetails>;
   }
   if (response?.data) {
     const data = response.data;
     return (
-      <div className={s.detailsCard}>
+      <StyledDetails>
         <p>
           Remain Seats:{" "}
           <span>
@@ -39,7 +39,7 @@ const FligthDetails: FC<FligthDetailsProps> = ({ id }) => {
           Class: <span>{data.cabinClass ? data.cabinClass : "--"}</span>
         </p>
         {data.freeBaggageAllowed ? <p>Free Baggage </p> : null}
-      </div>
+      </StyledDetails>
     );
   }
 

@@ -2,9 +2,9 @@ import { FlightType } from "@/types/data.types";
 import { parse, toSeconds } from "iso8601-duration";
 
 export enum SortType {
-  PRICE_ASCENDING = "PriceAscending",
-  DEPARTURE_TIME_ASCENDING = "DepartureTimeAscending",
-  FASTEST_BY_DURATION = "FastestByDuration",
+  PRICE_ASCENDING = "Price",
+  DEPARTURE_TIME_ASCENDING = "DepartureTime",
+  FASTEST_BY_DURATION = "Duration",
 }
 
 export const sortFlights = (data: FlightType[], sortType: SortType) => {

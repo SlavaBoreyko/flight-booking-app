@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
-import s from "./BigButton.module.scss";
-import { BtnProps } from "../../../../types/button.types";
+import { StyledButton } from "./styles";
+import { BtnProps } from "@/types/button.types";
 
 export const BigButton: FC<BtnProps> = ({ title, onClick, loading }) => {
   const [btnTitle, setBtnTitle] = useState<string>(title);
@@ -13,9 +13,5 @@ export const BigButton: FC<BtnProps> = ({ title, onClick, loading }) => {
     }
   }, [title, loading]);
 
-  return (
-    <button className={s.btn} onClick={onClick}>
-      {btnTitle}
-    </button>
-  );
+  return <StyledButton onClick={onClick}>{btnTitle}</StyledButton>;
 };

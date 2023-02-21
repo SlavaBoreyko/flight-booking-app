@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+
 import { SortType } from "@/api";
 import { optionsSortFlights } from "@/constants";
 
 export const useFlightsSortSelect = () => {
-  const [sortBy, setSortBy] = useState<SortType>(SortType.PRICE_ASCENDING);
+  const history = useHistory();
+  const { search } = useLocation();
+  const searchParams = new URLSearchParams(search);
+  const sortQuery = searchParams.get("sortBy");
+  const [sortBy, setSortBy] = useState<SortType>(sortQuery as SortType);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (sortBy) {
+      params.append("sortBy", sortBy);
+    } else {
+      params.delete("sortBy");
+    }
+    history.push({ search: params.toString() });
+  }, [sortBy, history]);
 
   const handleSelectSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    event.preventDefault();
-    if (event.target.value === SortType.PRICE_ASCENDING) {
-      setSortBy(SortType.PRICE_ASCENDING);
-    }
-    if (event.target.value === SortType.DEPARTURE_TIME_ASCENDING) {
-      setSortBy(SortType.DEPARTURE_TIME_ASCENDING);
-    }
-    if (event.target.value === SortType.FASTEST_BY_DURATION) {
-      setSortBy(SortType.FASTEST_BY_DURATION);
-    }
+    setSortBy(event.target.value as SortType);
   };
 
   return { optionsSortFlights, handleSelectSort, sortBy };

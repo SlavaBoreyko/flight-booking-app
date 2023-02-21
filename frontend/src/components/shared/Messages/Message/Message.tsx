@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import s from "./Message.module.scss";
+import { StyledMessage } from "./styles";
 
 export interface MessageProps {
   title: string;
@@ -8,9 +8,9 @@ export interface MessageProps {
 
 export const Message: FC<MessageProps> = ({ title, message }) => {
   return (
-    <div className={s.containerMessage}>
+    <StyledMessage>
       <h2>{title}</h2>
       <p>{message}</p>
-    </div>
+    </StyledMessage>
   );
 };
