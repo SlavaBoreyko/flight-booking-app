@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import { StyledBounds, StyledPadding } from "./styles";
 
 import { BoundsType } from "@/types/data.types";
-import { lineHrStyle } from "@/components/Flights/Bounds/utils";
-import AirlinesLogo from "@/components/Flights/AirlinesLogo";
-import DepDestItem from "@/components/Flights/DepDestItem";
+import { lineHrStyle } from "@/components/flights/Bounds/utils";
+import AirlinesLogo from "@/components/flights/AirlinesLogo";
+import DepDestItem from "@/components/flights/DepDestItem";
 
 interface BoundsProps {
   bounds: BoundsType[];

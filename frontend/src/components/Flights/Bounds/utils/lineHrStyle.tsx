@@ -1,4 +1,4 @@
-import { StyledHrElement } from "@/components/Flights/Bounds/styles";
+import { StyledHrElement } from "@/components/flights/Bounds/styles";
 
 export const lineHrStyle = (index: number) => {
   let line = null;

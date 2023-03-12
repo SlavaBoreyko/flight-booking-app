@@ -1,4 +1,4 @@
-import FlightsList from "@/components/Flights/FlightsList";
+import FlightsList from "@/components/flights/FlightsList";
 
 const FlightsPage = () => {
   return <FlightsList />;

@@ -5,7 +5,11 @@ export const StyledDetails = styled.div`
   font-size: ${fontSize.subtitleDesktop};
   font-weight: 500;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+
+  p {
+    margin-right: 2rem;
+  }
 
   & span {
     font-weight: 300;

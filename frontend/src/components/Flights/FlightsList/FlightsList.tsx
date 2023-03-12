@@ -1,6 +1,6 @@
 import { StyledList, StyledMargin } from "./styles";
-import FlightCard from "@/components/Flights/FlightCard";
-import SkeletonList from "@/components/Flights/SkeletonList";
+import FlightCard from "@/components/flights/FlightCard";
+import SkeletonList from "@/components/flights/SkeletonList";
 import ErrorServerPage from "@/pages/ErrorServerPage";
 import { Select } from "@/components/shared/Inputs";
 

@@ -9,9 +9,9 @@ import {
   StyledErrorBox,
 } from "./styles";
 
-import FligthDetails from "@/components/Flights/FligthDetails";
-import Bounds from "@/components/Flights/Bounds";
-import PriceButtonBox from "@/components/Flights/PriceBtnBox";
+import FligthDetails from "@/components/flights/FligthDetails";
+import Bounds from "@/components/flights/Bounds";
+import PriceButtonBox from "@/components/flights/PriceBtnBox";
 import { LinkButton } from "@/components/shared/Buttons";
 
 import { api } from "@/api";
